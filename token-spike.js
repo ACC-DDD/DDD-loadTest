@@ -1,7 +1,7 @@
 import http from "k6/http";
 import {check} from "k6";
 
-const BASE_URL = "https://sk0ldkamg3.execute-api.ap-northeast-2.amazonaws.com/disaster-token-db"; // ← 실제 API Gateway 주소로 교체
+const BASE_URL = "https://sk0ldkamg3.execute-api.ap-northeast-2.amazonaws.com/index-token-db";
 
 export const options = {
   scenarios: {
@@ -21,8 +21,8 @@ export const options = {
     },
   },
   thresholds: {
-    http_req_duration: ["p(95)<4000", "p(99)<5000"], // 95% 응답 < 4초, 99% 응답 < 5초
-    http_req_failed: ["rate<0.05"], // 에러율 5% 이하
+    http_req_duration: ["p(95)<4000", "p(99)<5000"],
+    http_req_failed: ["rate<0.05"],
   },
 };
 
